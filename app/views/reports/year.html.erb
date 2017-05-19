@@ -1,0 +1,40 @@
+<h1>Crimes by Year</h1>
+
+<div id="container" style="width:100%; height:400px;"></div>
+
+<div class ="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">Offence</th>
+        <th class="text-center">Occurences</th>
+        <th class="text-center">Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @crimes.each do |crime| %>
+        <tr>
+          <td class="text-center"><%= crime.offence.description %></td>
+          <td class="text-center"><%= crime.id %></td>
+          <td class="text-center"><%= crime.year %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @crimes, renderer: BootstrapPagination::Rails %>
+
+<script>
+$(function () {
+  $('#container').highcharts({
+      chart: { type: 'column' },
+      title: { text: '<%= raw "Crime Occurences in #{@crimes.first.year}" %>' },
+      xAxis: { categories: <%= raw @crimes.map{|crime| crime.offence.description}.to_json %> },
+      yAxis: { title: { text: 'Occurences' } },
+      series: [{
+          name: <%= raw @crimes.first.year %>,
+          data: <%= raw @crimes.map{|crime| crime.id}.to_json %>
+      }]
+  });
+});
+</script>

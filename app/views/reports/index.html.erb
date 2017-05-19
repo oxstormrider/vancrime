@@ -3,19 +3,25 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th class="text-center">Offence</th>
-        <th class="text-center">Neighbourhood</th>
         <th class="text-center">Year</th>
         <th class="text-center">Month</th>
+        <th class="text-center">Day</th>
+        <th class="text-center">Hour</th>
+        <th class="text-center">Minute</th>
+        <th class="text-center">Neighbourhood</th>
+        <th class="text-center">Offence</th>
       </tr>
     </thead>
     <tbody>
       <% @crimes.each do |crime| %>
         <tr>
-          <td class="text-center"><%= crime.offence.description %></td>
-          <td class="text-center"><%= crime.site.neighbourhood || "" %></td>
           <td class="text-center"><%= crime.year %></td>
           <td class="text-center"><%= crime.month %></td>
+          <td class="text-center"><%= crime.day %></td>
+          <td class="text-center"><%= crime.hour %></td>
+          <td class="text-center"><%= crime.minute %></td>
+          <td class="text-center"><%= crime.site.neighbourhood || "" %></td>
+          <td class="text-center"><%= crime.offence.description %></td>          
         </tr>
       <% end %>
     </tbody>
