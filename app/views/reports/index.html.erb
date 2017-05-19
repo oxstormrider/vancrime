@@ -1,0 +1,24 @@
+<h1>All Crimes</h1>
+<div class ="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center">Offence</th>
+        <th class="text-center">Neighbourhood</th>
+        <th class="text-center">Year</th>
+        <th class="text-center">Month</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @crimes.each do |crime| %>
+        <tr>
+          <td class="text-center"><%= crime.offence.description %></td>
+          <td class="text-center"><%= crime.site.neighbourhood || "" %></td>
+          <td class="text-center"><%= crime.year %></td>
+          <td class="text-center"><%= crime.month %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @crimes, renderer: BootstrapPagination::Rails %>

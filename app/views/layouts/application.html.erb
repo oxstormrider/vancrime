@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Vancrime</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vancouver Crimes Report</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/navigation' %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'layouts/messages' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <%= render 'layouts/footer'%>
+      </div>
+    </div>
+</body>
 </html>

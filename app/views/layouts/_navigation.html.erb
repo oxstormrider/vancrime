@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "VanCrimes", root_path, :class => 'navbar-brand' %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <!-- Left Nav-->
+      <ul class="nav navbar-nav">
+        <li><%= link_to "All", reports_index_path %></li>
+        <li><%= link_to "By Year", reports_year_path %></li>
+        <li><%= link_to "By Month", reports_month_path %></li>
+        <li><%= link_to "By Year/Month", reports_year_month_path %></li>
+      </ul>
+      <!-- Right Nav-->
+      <ul class="nav navbar-nav navbar-right">
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
